@@ -27,8 +27,8 @@ def get_prop(soup, url, correct_cat):
     code_stuff_code = soup.find('div', class_='product__rating').find('p', class_='product__code detail-code')
     seller_stuff_code = soup.find('div', class_='product-seller__info').find('strong', class_='ng-star-inserted')
     # not work normal, need the final category
-    category_link = soup.find('ul', class_='breadcrumbs ng-star-inserted').find('li',
-                                                                                class_='breadcrumbs__item ng-star-inserted'). \
+    category_link = soup.find('ul', class_='breadcrumbs ng-star-inserted').\
+        find('li', class_='breadcrumbs__item ng-star-inserted'). \
         find('a', class_='breadcrumbs__link').get('href')
 
     # result names
@@ -65,6 +65,7 @@ with open(input_file, 'r') as file:
         get_prop(soup, url_line[0], url_line[1])
         print('Link is ready')
 
+"""Manual input"""
 # while True:
 #     url = input('Put the url:\n')
 #     if url == 'q':
